@@ -1,0 +1,4 @@
+@use .className as .basicClassName from './basics';
+
+.basicClassName { color: red; }
+.className { color: blue; }

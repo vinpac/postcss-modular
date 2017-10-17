@@ -1,0 +1,4 @@
+._className_wo9uw_1 { background: red; }
+ ._className_wo9uw_1 { color: green; }
+._className_wo9uw_1 ._subClass_wo9uw_3 { color: green; }
+ ._className_wo9uw_1 ._subClass_wo9uw_3 .global-class-name { color: blue; }
