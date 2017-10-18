@@ -1,4 +1,3 @@
-import test from 'ava'
 import postcss from 'postcss'
 import fs from 'fs'
 import path from 'path'
@@ -6,30 +5,48 @@ import plugin from '../lib/plugin'
 
 const fixturesPath = path.resolve(__dirname, './fixtures')
 
+function readFile(folder, fileName) {
+  const filePath = path.join(fixturesPath, folder, `${ fileName }.css`)
+  return {
+    path: filePath,
+    css: fs.readFileSync(filePath).toString()
+  }
+}
 
-test('Basics', async (t) => {
-  const sourceFile = path.join(fixturesPath, 'in', 'basics.css')
-  const expectedFile = path.join(fixturesPath, 'out', 'basics.css')
-  const sourceCSS = fs.readFileSync(sourceFile).toString()
-  const expectedCSS = fs.readFileSync(expectedFile).toString()
+function readInAndOut(fileName) {
+  return {
+    source: readFile('in', fileName),
+    expected: readFile('out', fileName)
+  }
+}
 
-  const result = await postcss([plugin])
-    .process(sourceCSS, { from: sourceFile })
+describe('Basics', () => {
+  it('should handle basic hashing and scoping', async () => {
+    const { source, expected } = readInAndOut('basics')
 
-  t.deepEqual(result.css, expectedCSS)
-})
+    const result = await postcss([plugin()])
+      .process(source.css, { from: source.path })
 
-test('Use', async (t) => {
-  const basicsSourceFile = path.join(fixturesPath, 'in', 'basics.css')
-  const basicsSourceCSS = fs.readFileSync(basicsSourceFile).toString()
-  const sourceFile = path.join(fixturesPath, 'in', 'use.css')
-  const expectedFile = path.join(fixturesPath, 'out', 'use.css')
-  const sourceCSS = fs.readFileSync(sourceFile).toString()
-  const expectedCSS = fs.readFileSync(expectedFile).toString()
+    expect(result.css).toEqual(expected.css)
+    expect(result.translations).toEqual({
+      className: '_className_wo9uw_1',
+      subClass: '_subClass_wo9uw_3'
+    })
+  })
 
-  const pipeline = await postcss([plugin])
-  await pipeline.process(basicsSourceCSS, { from: basicsSourceFile })
-  const result = await pipeline.process(sourceCSS, { from: sourceFile })
+  it('should handle @use', async () => {
+    const basics = readFile('in', 'basics')
+    const { source, expected } = readInAndOut('use')
+    const pipeline = postcss([plugin()])
 
-  t.deepEqual(result.css, expectedCSS)
+    // Process basics.css
+    await pipeline.process(basics.css, { from: basics.path })
+    const result = await pipeline.process(source.css, { from: source.path })
+
+    expect(result.css).toEqual(expected.css)
+    expect(result.translations).toEqual({
+      basicClassName: '_className_wo9uw_1',
+      className: '_className_c6lnr_1'
+    })
+  })
 })

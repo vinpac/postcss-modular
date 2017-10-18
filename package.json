@@ -25,21 +25,22 @@
   "license": "MIT",
   "scripts": {
     "pretest": "$(npm bin)/eslint lib test",
-    "test": "$(npm bin)/babel-node $(npm bin)/ava",
+    "test": "$(npm bin)/jest",
     "transpile": "$(npm bin)/babel lib -d build",
     "prepublish": "npm run transpile",
     "postpublish": "rm -rf build && git push --follow-tags"
   },
   "devDependencies": {
-    "ava": "^0.22.0",
     "babel": "^6.23.0",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
     "babel-eslint": "^8.0.1",
+    "babel-jest": "^21.2.0",
     "babel-preset-env": "^1.6.1",
     "eslint": "^4.9.0",
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-plugin-import": "^2.7.0",
+    "jest": "^21.2.1",
     "prettier": "^1.7.4"
   },
   "peerDependencies": {
