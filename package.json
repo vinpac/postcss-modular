@@ -1,6 +1,6 @@
 {
   "name": "postcss-modular",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": "Vinicius Pacheco Furtado <vin175pacheco@gmail.com>",
   "description": "PostCSS plugin to modularize classnames",
   "main": "lib/plugin.js",
@@ -27,17 +27,8 @@
     "pretest": "$(npm bin)/eslint lib test",
     "test": "$(npm bin)/babel-node $(npm bin)/ava",
     "transpile": "$(npm bin)/babel lib -d build",
-    "a": "babel-node lib",
     "prepublish": "npm run transpile",
     "postpublish": "rm -rf build && git push --follow-tags"
-  },
-  "dependencies": {
-    "cssnano": "^3.10.0",
-    "has": "^1.0.1",
-    "loader-utils": "^1.1.0",
-    "object-assign": "^4.1.1",
-    "postcss": "^6.0.13",
-    "string-hash": "^1.1.3"
   },
   "devDependencies": {
     "ava": "^0.22.0",
@@ -50,6 +41,11 @@
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-plugin-import": "^2.7.0",
     "prettier": "^1.7.4"
+  },
+  "peerDependencies": {
+    "has": "^1.0.1",
+    "postcss": "^6.0.13",
+    "string-hash": "^1.1.3"
   },
   "require": "babel-core/register"
 }
