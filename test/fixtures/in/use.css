@@ -1,4 +1,5 @@
-@use .className as .basicClassName from './basics';
+@use .className as .basicClassName, .subClass from './basics';
 
-.basicClassName { color: red; }
 .className { color: blue; }
+.basicClassName { color: red; }
+.subClass { color: white; }

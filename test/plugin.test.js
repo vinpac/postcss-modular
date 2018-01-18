@@ -29,9 +29,22 @@ describe('Basics', () => {
 
     expect(result.css).toEqual(expected.css)
     expect(result.translations).toEqual({
-      className: '_className_wo9uw_1',
-      subClass: '_subClass_wo9uw_3'
+      className: '_className_1wre7_h4',
+      subClass: '_subClass_kp1bo_b'
     })
+  })
+
+  it('should have different translations based on sourcePath', async () => {
+    const { source } = readInAndOut('basics')
+
+    const result = await postcss([plugin()])
+      .process(source.css, { from: source.path })
+
+
+    const result2 = await postcss([plugin()])
+      .process(source.css, { from: `${ source.path }.` })
+
+    expect(result.translations).not.toEqual(result2.translations)
   })
 
   it('should handle @use', async () => {
@@ -45,8 +58,7 @@ describe('Basics', () => {
 
     expect(result.css).toEqual(expected.css)
     expect(result.translations).toEqual({
-      basicClassName: '_className_wo9uw_1',
-      className: '_className_c6lnr_1'
+      className: '_className_1iqoc_tu'
     })
   })
 })
