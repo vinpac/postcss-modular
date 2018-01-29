@@ -1,4 +1,4 @@
 :local(.className) { background: red; }
 .className { color: green; }
-:local(.className .subClass) { color: green; }
+:global .className .subClass { color: green; }
 :global(.global-class-name-1) :local .className .subClass :global(.global-class-name-2) { color: blue; }

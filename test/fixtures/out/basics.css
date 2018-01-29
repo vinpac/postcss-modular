@@ -1,4 +1,4 @@
 ._className_1wre7_h4 { background: red; }
 ._className_1wre7_h4 { color: green; }
-._className_1wre7_h4 ._subClass_kp1bo_b { color: green; }
+ .className .subClass { color: green; }
 .global-class-name-1  ._className_1wre7_h4 ._subClass_kp1bo_b .global-class-name-2 { color: blue; }

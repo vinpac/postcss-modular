@@ -1,9 +1,9 @@
 {
   "name": "postcss-modular",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "author": "Vinicius Pacheco Furtado <vin175pacheco@gmail.com>",
   "description": "PostCSS plugin to modularize classnames",
-  "main": "build/plugin.js",
+  "main": "dist/plugin.js",
   "keywords": [
     "postcss",
     "css",
@@ -23,9 +23,9 @@
   "scripts": {
     "pretest": "$(npm bin)/eslint lib test",
     "test": "$(npm bin)/jest",
-    "transpile": "$(npm bin)/babel lib -d build",
+    "transpile": "$(npm bin)/babel lib -d dist",
     "prepublish": "npm run transpile",
-    "postpublish": "rm -rf build && git push --follow-tags"
+    "postpublish": "rm -rf dist && git push --follow-tags"
   },
   "devDependencies": {
     "babel": "^6.23.0",

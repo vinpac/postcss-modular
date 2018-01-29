@@ -1,6 +1,7 @@
 {
   "semi": false,
-  "printWidth": 80,
-  "trailingComma": "none",
-  "singleQuote": true
+  "printWidth": 100,
+  "parser": "flow",
+  "singleQuote": true,
+  "trailingComma": "all"
 }

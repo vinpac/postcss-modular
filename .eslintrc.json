@@ -11,17 +11,13 @@
       "never"
     ],
 
-    "comma-dangle": ["error", "never"],
     "max-len": [2, 100, 4],
     "quotes": [2, "single"],
-    "template-curly-spacing": [2, "always"],
-
-    // Not supporting nested package.json yet
-    // https://github.com/benmosher/eslint-plugin-import/issues/458
+    "function-paren-newline": 0,
+    "object-curly-newline": 0,
     "import/no-extraneous-dependencies": "off",
+    "arrow-parens": ["error", "as-needed", { "requireForBlockBody": false }],
 
-    // Recommend not to leave any console.log in your code
-    // Use console.error, console.warn and console.info instead
     "no-console": [
       "error",
       {
