@@ -1,3 +1,6 @@
 ._className_1iqoc_tu { color: blue; }
 ._className_1wre7_h4 div::before { color: red; }
-._subClass_1ix19_4h ._subClass_kp1bo_b { color: white; }
+._subClass_1ix19_4h._subClass_kp1bo_b._className_1wre7_h4 { color: white; }
+._subClass_1ix19_4h._subClass_kp1bo_b { color: white; }
+._subClass_kp1bo_b._subClass_1ix19_4h { color: white; }
+._subClass_kp1bo_b>._subClass_1ix19_4h { color: white; }

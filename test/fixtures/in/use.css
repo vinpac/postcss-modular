@@ -1,7 +1,8 @@
-:import {
-  FormGroup: './basics'
-}
+:import { FormGroup: './basics' }
 
 .className { color: blue; }
 FormGroup::className div::before { color: red; }
-.subClass FormGroup::subClass { color: white; }
+.subClass(FormGroup::subClass)(FormGroup::className) { color: white; }
+.subClass.FormGroup::subClass { color: white; }
+.FormGroup::subClass.subClass { color: white; }
+FormGroup::subClass>.subClass { color: white; }
