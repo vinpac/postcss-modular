@@ -6,3 +6,4 @@ FormGroup::className div::before { color: red; }
 .subClass.FormGroup::subClass { color: white; }
 .FormGroup::subClass.subClass { color: white; }
 FormGroup::subClass>.subClass { color: white; }
+.className::after { color: #333; }
