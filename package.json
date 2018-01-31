@@ -1,6 +1,6 @@
 {
   "name": "postcss-modular",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "author": "Vinicius Pacheco Furtado <vin175pacheco@gmail.com>",
   "description": "PostCSS plugin to modularize classnames",
   "main": "dist/plugin.js",
